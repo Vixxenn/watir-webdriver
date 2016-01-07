@@ -55,10 +55,6 @@ module Watir
       element_indexes.map { |idx| element_class.new(@parent, tag_name: @selector[:tag_name], index: idx) }
     end
 
-    def element_class
-      IFrame
-    end
-
     private
 
     def all_elements
@@ -84,11 +80,6 @@ module Watir
 
 
   class FrameCollection < IFrameCollection
-
-    def element_class
-      Frame
-    end
-
   end # FrameCollection
 
 
