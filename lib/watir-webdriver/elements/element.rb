@@ -604,7 +604,7 @@ module Watir
 
     def method_missing(meth, *args, &blk)
       method = meth.to_s
-      if method =~ ElementLocator::WILDCARD_ATTRIBUTE
+      if method =~ ElementLocator::SelectorBuild::WILDCARD_ATTRIBUTE
         attribute_value(method.gsub(/_/, '-'), *args)
       else
         super
@@ -612,7 +612,7 @@ module Watir
     end
 
     def respond_to_missing?(meth, *)
-      ElementLocator::WILDCARD_ATTRIBUTE === meth.to_s || super
+      ElementLocator::SelectorBuild::WILDCARD_ATTRIBUTE === meth.to_s || super
     end
 
   end # Element
